@@ -5,13 +5,14 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram import Router
 from aiogram.filters import Command
 from aiohttp import web
+import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 API_TOKEN = '7197491181:AAHAUrAYczXlRBqk_FbgsWctz40MKQyhzWE'
 WEBHOOK_URL = 'https://test-wfip.onrender.com'  # Замените на ваш домен
-PORT = 3000
+PORT = int(os.environ.get('PORT', 3000))
 
 bot = Bot(token=API_TOKEN)
 storage = MemoryStorage()
